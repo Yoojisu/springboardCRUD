@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+	<h2>게시글 등록 화면</h2>
+
+	<form action="/addBoard" method="post">
+		<table border=1>
+		
+			<tr>
+				<td>boardPw </td> 
+				<td><input type="password" name="boardPw"></td>
+			<tr>
+			<tr>
+				<td>boardTitle </td> 
+				<td><input type="text" name="boardTitle"></td>
+			<tr>
+			<tr>
+				<td>boardContent </td> 
+				<td><input type="text" name="boardContent"></td>
+			<tr>
+			<tr>
+				<td>boardUser </td> 
+				<td><input type="text" name="boardUser"></td>
+			<tr>
+			
+				<td><input type="submit" value="등록"></td>
+			
+
+
+			</table>
+	</form>
+</body>

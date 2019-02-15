@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="cafe.ebsteam.springboard.mapper.BoardMapper">
+	<select id="selectBoard" 
+			parameterType="int" 
+			resultType="cafe.ebsteam.springboard.vo.Board">
+	<!--리턴값(resultType)은 Board, 매개변수입력값(parameterType)은 int -->
+		SELECT 
+			board_no as boardNo,
+			board_pw as boardPw,
+			board_title as boardTitle, 
+			board_content as boardContent, 
+			board_user as boardUser, 
+			board_date as boardDate
+			FROM board 
+			WHERE board_no=#{boardNo}
+	
+	</select>
+	
+	<select id="selectBoardList" 
+			parameterType="java.util.Map" 
+			resultType="cafe.ebsteam.springboard.vo.Board">
+	<!--리턴값(resultType)은 Board, 매개변수입력값(parameterType)은 Map<String, Integer> map -->		
+			SELECT
+			 	board_no as boardNo, 
+			 	board_pw as boardPw,
+				board_title as boardTitle,
+			 	board_user as boardUser,
+			 	board_date as boardDate
+			FROM board 
+			ORDER BY board_no  
+			LIMIT #{startPage}, #{rowPerPage}
+		<!--DESC LIMIT ?, ?  ?는 Map안에 내용을 가져올 것  -->
+
+
+	</select>
+	
+	<select id="selectBoardCount"
+			resultType="int">
+	<!--리턴값(resultType)은 int-->
+			SELECT COUNT(*) 
+			FROM board		
+			
+	</select>
+	
+	<insert id="insertBoard"
+			parameterType="cafe.ebsteam.springboard.vo.Board">
+	<!--리턴값(resultType)은 int(defult값으로 생략 가능) 매개변수입력값(parameterType)은 Board" -->
+			
+			INSERT INTO board(board_pw, board_title, board_content, board_user, board_date)
+			values(#{boardPw},#{boardTitle},#{boardContent},#{boardUser},now())
+	
+	</insert>
+	
+	<update id="updateBoard"
+			parameterType="cafe.ebsteam.springboard.vo.Board">
+		<!--리턴값(resultType)은 int(defult값으로 생략 가능) 매개변수입력값(parameterType)은 Board" -->
+		UPDATE board 
+		SET board_title=#{boardTitle}, board_content=#{boardContent}
+		WHERE board_no=#{boardNo} 
+		
+	
+	</update>
+	
+	<delete id="deleteBoard"
+			parameterType="cafe.ebsteam.springboard.vo.Board">
+		<!--리턴값(resultType)은 int(defult값으로 생략 가능) 매개변수입력값(parameterType)은 Board" -->		
+			DELETE 
+			FROM board 
+			WHERE board_no=#{boardNo} AND board_pw=#{boardPw}
+			
+	</delete>
+
+</mapper>
+

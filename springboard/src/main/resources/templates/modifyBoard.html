@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+<body>
+	<form action="/modifyBoard" method="post">
+		<table border=1>
+			<tr th:each="b : ${list}">
+				<td>No :<input th:value="${b.boardNo}" type="text" name="boardNo"  readonly></td>
+				<td>Title :<input th:value="${b.boardTitle}" type="text" name="boardTitle" ></td> 
+				<td>Content : <input th:value="${b.boardContent}" type="text" name="boardContent" ></td>
+				<td><input type="submit" value="수정하기"></td>
+			</tr>
+		</table>
+	</form> 
+</body> 

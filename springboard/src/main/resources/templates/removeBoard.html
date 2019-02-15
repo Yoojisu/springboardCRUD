@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+	<h2>게시글 삭제 화면</h2>
+
+	<form action="/removeBoard" method="post">
+		<table border=1>
+		
+			
+				<tr>
+				<td>boardNo </td> 
+				<td><input type="text" name="boardNo" th:value = "${list.boardNo}" readonly></td>
+				<tr>
+				
+				<tr th:each = "b : ${list}">
+				<td>boardTitle </td> 
+				<td><input type="text" name="boardTitle" th:value = "${list.boardTitle}" readonly></td>
+				<tr>
+				
+				<tr>
+				<td>boardContent </td> 
+				<td><input type="text" name="boardContent" th:value = "${list.boardContent}" readonly></td>
+				
+				<tr>
+				<td>boardUser </td> 
+				<td><input type="text" name="boardUser" th:value = "${list.boardUser}" readonly></td>
+			</tr>
+			
+			<tr>
+				<td>boardPw </td> 
+				<td><input type="password" name="boardPw"></td>
+			<tr>
+			<tr>	
+			
+				<td><input type="submit" value="삭제하기"></td>
+			
+			</table>
+	</form>
+</body>

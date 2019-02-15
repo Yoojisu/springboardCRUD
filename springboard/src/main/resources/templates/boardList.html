@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+
+	<h2>Board List</h2>
+	<table border=1>
+		<tr>
+			<td>boardNo</td>
+			<td>boardTitle</td>
+			<td>boardUser</td>
+			<td>boardDate</td>
+			<td>수정</td>
+			<td>삭제</td>
+		</tr>
+		<!--boardList에 list를 가져와서 변수 b로 선언한다. -->
+		<tr th:each="b : ${boardList.list}">
+
+			<td th:text="${b.boardNo}"></td>
+			<td th:text="${b.boardTitle}"></td>
+			<td th:text="${b.boardUser}"></td>
+			<td th:text="${b.boardDate}"></td>
+			<td><a th:href="@{/modifyBoard(boardNo=${b.boardNo})}">수정</a></td>
+			<td><a
+				th:href="@{/removeBoard(boardNo=${b.boardNo})}" >삭제</a></td>
+		</tr>
+
+	</table>
+
+	<form>
+
+		</td>
+		<tr>
+			<!--현재 페이지가 1보다 큰 경우에는  처음,이전,다음,끝 경로가 나옴 -->
+			<!--1보다 작으면 다음,끝만 나옴 -->
+			<td th:if="${currentPage > 1}"><a
+				th:href="@{/boardList(currentPage=1)}">[처음]</a> <a
+				th:href="@{/boardList(currentPage=${currentPage-1})}">[이전]</a></td>
+
+			<td th:if="${currentPage < lastPage}"><a
+				th:href="@{/boardList(currentPage=${currentPage+1})}">[다음]</a> <a
+				th:href="@{/boardList(currentPage=${lastPage})}">[끝]</a></td>
+
+		</tr>
+		
+	</form>
+
+	<a th:href="@{/addBoard}">입력하기</a>
+</body>
