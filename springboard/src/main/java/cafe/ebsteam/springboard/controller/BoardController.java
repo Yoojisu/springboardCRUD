@@ -21,6 +21,7 @@ public class BoardController {
 	// 입력 폼
 	@GetMapping("/addBoard")
 	public String addBoard() {
+		
 		System.out.println("입력 폼 실행");
 		// addList경로를 get방식으로 받으면 addList.html으로 이동한다.(입력 폼이 있음)
 		return "addBoard";
@@ -114,6 +115,19 @@ public class BoardController {
 		//경로를 boardList로 리다이렉트 한다.
 		return "redirect:/boardList";
 
+	}
+	//디테일 폼
+	@GetMapping("/detailBoard")
+	public String detailBoard(Model model, @RequestParam(value = "boardNo") int boardNo) {
+		Board list = boardService.getBoard(boardNo);
+		//getBoard메서드에 boardNo매개변수를 입력한 후 리턴값을 list에 저장한다.
+		model.addAttribute("list", list);
+		//Board타입으로 저장된 list를 "list"변수에 setting하여 호출한 곳에서 꺼내 쓸 수 있게 한다.
+		System.out.println("수정 폼 boardNo:" + boardNo);
+		System.out.println("수정 폼 실행");
+		
+		// /modifyBoard경로가 요청되면 modifyBoard.html로 이동
+		return "detailBoard";
 	}
 
 }

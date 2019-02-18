@@ -1,34 +1,105 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+div {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+</style>
+
+
+
 <head>
+
+
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+		$(document).ready(function(){
+			
+		$('#boardPw').focus();
+		$('#boardPw').blur(()=>{
+		if(!isNuN($('#boardPw').val())){
+				$('pwHelper').text('');
+				 alert("비밀번호 입력바람");
+				$('boardPw').focus();
+			}	
+		
+		}		
+		});
+
+	
+	</script>
+	<style></style>
 </head>
 
 <body>
+
 	<h2>게시글 등록 화면</h2>
 
 	<form action="/addBoard" method="post">
-		<table border=1>
-		
-			<tr>
-				<td>boardPw </td> 
-				<td><input type="password" name="boardPw"></td>
-			<tr>
-			<tr>
-				<td>boardTitle </td> 
-				<td><input type="text" name="boardTitle"></td>
-			<tr>
-			<tr>
-				<td>boardContent </td> 
-				<td><input type="text" name="boardContent"></td>
-			<tr>
-			<tr>
-				<td>boardUser </td> 
-				<td><input type="text" name="boardUser"></td>
-			<tr>
-			
-				<td><input type="submit" value="등록"></td>
-			
+		<div>
+			<table>
 
+				<tr>
+					<td>boardPw</td>
+					<td><input type="password" name="boardPw"
+						placeholder="비밀번호를 입력하시오." id="boardPw"></td>
+				<tr>
+				<tr>
+					<td>boardTitle</td>
+					<td><input type="text" name="boardTitle" id="boardTitle"></td>
+				<tr>
+				<tr>
+					<td>boardContent</td>
+					<td><textarea type="text" name="boardContent" id="boardContent" style="height:200px"></textarea></td>
+				<tr>
+				
+				     
+				
+				<tr>
+					<td>boardUser</td>
+					<td><input type="text" name="boardUser" id="boardUser"></td>
+				<tr>
 
+					<td><input type="submit" value="등록"></td>
 			</table>
+		</div>
 	</form>
 </body>

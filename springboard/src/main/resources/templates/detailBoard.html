@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<h2>Board Detail</h2>
+	<table>
+	<ul>
+		<li>No : <th:block th:text="${list.boardNo}">
+			</th:block>
+		</li>
+		<li>제목 : <th:block th:text="${list.boardTitle}">
+			</th:block>
+		</li>
+		<li>내용 : <th:block th:text="${list.boardContent}">
+			</th:block>
+		</li>
+		<li>작성자 : <th:block th:text="${list.boardUser}">
+			</th:block>
+		</li>
+		<li>일자 : <th:block th:text="${list.boardDate}">
+			</th:block>
+		</li>
+
+		<td><a th:href="@{/modifyBoard(boardNo=${list.boardNo})}">수정</a></td>
+		<td><a th:href="@{/removeBoard(boardNo=${list.boardNo})}">삭제</a></td>
+	
+	</ul>
+	</table>
+	
+</body>

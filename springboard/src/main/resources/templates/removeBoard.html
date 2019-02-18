@@ -1,5 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 </head>
 
 <body>
@@ -14,7 +16,7 @@
 				<td><input type="text" name="boardNo" th:value = "${list.boardNo}" readonly></td>
 				<tr>
 				
-				<tr th:each = "b : ${list}">
+				<tr>
 				<td>boardTitle </td> 
 				<td><input type="text" name="boardTitle" th:value = "${list.boardTitle}" readonly></td>
 				<tr>

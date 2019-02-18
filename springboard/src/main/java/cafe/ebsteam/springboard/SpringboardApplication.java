@@ -10,5 +10,6 @@ public class SpringboardApplication {
 		SpringApplication.run(SpringboardApplication.class, args);
 	}
 
+	
 }
 

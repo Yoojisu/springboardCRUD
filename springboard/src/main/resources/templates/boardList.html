@@ -1,33 +1,82 @@
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 </head>
+<style>
+.w3-btn {
+	margin-bottom: 10px;
+}
 
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+</style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-
+<div class="container">
 	<h2>Board List</h2>
-	<table border=1>
-		<tr>
-			<td>boardNo</td>
-			<td>boardTitle</td>
-			<td>boardUser</td>
-			<td>boardDate</td>
-			<td>수정</td>
-			<td>삭제</td>
-		</tr>
-		<!--boardList에 list를 가져와서 변수 b로 선언한다. -->
-		<tr th:each="b : ${boardList.list}">
+	
+		<table id="customers">
+			<tr>
+				<th>boardNo</th>
+				<th>boardTitle</th>
+				<th>boardUser</th>
+				<th>boardDate</th>
+<!-- 				<th>수정</th>
+				<th>삭제</th> -->
+			</tr>
+			<!--boardList에 list를 가져와서 변수 b로 선언한다. -->
+			<tr th:each="b : ${boardList.list}">
 
-			<td th:text="${b.boardNo}"></td>
-			<td th:text="${b.boardTitle}"></td>
-			<td th:text="${b.boardUser}"></td>
-			<td th:text="${b.boardDate}"></td>
-			<td><a th:href="@{/modifyBoard(boardNo=${b.boardNo})}">수정</a></td>
-			<td><a
-				th:href="@{/removeBoard(boardNo=${b.boardNo})}" >삭제</a></td>
-		</tr>
+				<td th:text="${b.boardNo}"></td>
+				<td><a th:href="@{/detailBoard(boardNo=${b.boardNo})}"> <th:block
+							th:text=${b.boardTitle}></th:block></a> 
+				<td th:text="${b.boardUser}"></td>
+				<td th:text="${b.boardDate}"></td>
+				
+			</tr>
 
-	</table>
-
+		</table>
+	
 	<form>
 
 		</td>
@@ -40,11 +89,17 @@
 
 			<td th:if="${currentPage < lastPage}"><a
 				th:href="@{/boardList(currentPage=${currentPage+1})}">[다음]</a> <a
-				th:href="@{/boardList(currentPage=${lastPage})}">[끝]</a></td>
+				th:href="@{/boardList(currentPage=${lastPage+1})}">[끝]</a></td>
 
 		</tr>
-		
+
 	</form>
 
-	<a th:href="@{/addBoard}">입력하기</a>
+	<form action="/addBoard">
+		<button class="w3-button w3-white w3-border w3-round-large">글
+			등록하기</button>
+
+
+	</form>
+</div>
 </body>

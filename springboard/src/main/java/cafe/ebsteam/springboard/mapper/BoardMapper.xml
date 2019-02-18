@@ -60,7 +60,7 @@
 		<!--리턴값(resultType)은 int(defult값으로 생략 가능) 매개변수입력값(parameterType)은 Board" -->
 		UPDATE board 
 		SET board_title=#{boardTitle}, board_content=#{boardContent}
-		WHERE board_no=#{boardNo} 
+		WHERE board_no=#{boardNo} AND board_pw=#{boardPw}
 		
 	
 	</update>
