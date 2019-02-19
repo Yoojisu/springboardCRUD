@@ -1,43 +1,94 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js}"></script>
+<script>
+	console.log("글 삭제화면 확인");
+	/* 유효성 검사 */
+	$(document).ready(function(){
+		/* .ready = body안의 내용을 읽는 것 */
+		$('#submit').click(function(){
+			/* id가 submit인 버튼을 클릭하면 호출되는 함수 */
+			$('#removeBoard').submit(function(event){
+				/*form id가 removeBoard인 경우 event 시작  */
+				if($('#boardPw').val().length<1){
+					$('#boardPw').attr('placeholder','Password를 입력해주세요.');
+					$('#boardPw').focus();
+					/* boardPw가 1글자 이상 입력되어야 다음으로 넘어감
+					입력되지 않으면 boardPw에'Password를 입력해주세요' 라는 글이 뜬다.*/
+					return false;
+					/* 입력되지 않았기 때문에 false를 리턴 */
+				}
+			});
+		});
+	});		
+</script>
+
+<style>
+div.ma {
+        margin: 50px 100px 50px 350px;
+      }
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+div {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+</style>
 </head>
 
 <body>
-	<h2>게시글 삭제 화면</h2>
+	
 
-	<form action="/removeBoard" method="post">
-		<table border=1>
-		
-			
-				<tr>
-				<td>boardNo </td> 
-				<td><input type="text" name="boardNo" th:value = "${list.boardNo}" readonly></td>
-				<tr>
+	<form action="/removeBoard" method="post" id="removeBoard">
+		<div class="ma">
+		<h2>게시글 삭제 </h2>
+		<table>
+			<tr>
 				
+				<td><input type="hidden" name="boardNo" th:value = "${list.boardNo}" readonly></td>
 				<tr>
-				<td>boardTitle </td> 
-				<td><input type="text" name="boardTitle" th:value = "${list.boardTitle}" readonly></td>
-				<tr>
-				
-				<tr>
-				<td>boardContent </td> 
-				<td><input type="text" name="boardContent" th:value = "${list.boardContent}" readonly></td>
-				
-				<tr>
-				<td>boardUser </td> 
-				<td><input type="text" name="boardUser" th:value = "${list.boardUser}" readonly></td>
-			</tr>
-			
+
 			<tr>
 				<td>boardPw </td> 
-				<td><input type="password" name="boardPw"></td>
+				<td><input type="password" name="boardPw" id="boardPw"></td>
 			<tr>
 			<tr>	
 			
-				<td><input type="submit" value="삭제하기"></td>
+				<td><input type="submit" value="삭제하기" id="submit"></td>
 			
 			</table>
+				<a type=button class="w3-button w3-white w3-border w3-round-large"
+			th:href="@{/boardList(currentPage=${currentPage})}">리스트로 가기</a>
+			
+			</div>
 	</form>
 </body>

@@ -16,7 +16,7 @@
 			board_user as boardUser, 
 			board_date as boardDate
 			FROM board 
-			WHERE board_no=#{boardNo}
+			WHERE board_no=#{boardNo} 
 	
 	</select>
 	

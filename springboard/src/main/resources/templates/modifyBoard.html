@@ -1,9 +1,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js}"></script>
 <style>
+div.ma {
+        margin: 50px 100px 50px 350px;
+      }
 input[type=text], select {
 	width: 100%;
 	padding: 12px 20px;
@@ -36,10 +42,34 @@ div {
 }
 </style>
 
+
+<script>
+	console.log("글 수정화면");
+	/* 유효성 검사 */
+	$(document).ready(function(){
+		$('#submit').click(function(){
+			$('#modifyBoard').submit(function(event){
+				if($('#boardTitle').val().length<1){
+					$('#boardTitle').attr('placeholder','Title을 입력해주세요.');
+					$('#boardTitle').focus();
+					return false;
+				}else if($('#boardContent').val().length<1){
+					$('#boardContent').attr('placeholder','Content를 입력해주세요.');
+					$('#boardContent').focus();
+					return false;
+				}
+			});
+		});
+	});				
+</script>
+
+
 </head>
 <body>
-	<form action="/modifyBoard" method="post">
-		<div>
+
+	<form action="/modifyBoard" method="post" id="modifyBoard">
+		<div class="ma">
+		<h2>게시글 수정 </h2>
 			<table>
 				<tr>
 					<td>No</td>
@@ -47,22 +77,25 @@ div {
 						name="boardNo" readonly></td>
 				<tr>
 					<td>Title</td>
-					<td><input th:value="${list.boardTitle}" type="text"
+					<td><input th:value="${list.boardTitle}" type="text" id="boardTitle"
 						name="boardTitle"></td>
 				<tr>
 					<td>Content</td>
-					<td><input th:value="${list.boardContent}" type="text" style="height:200px"
-						name="boardContent"></td>
-						
-						
+					<td><textarea type="text"  th:text="${list.boardContent}" rows="5" cols="80" id="boardContent" 
+						name="boardContent"></textarea></td>																
 				<tr>
 					<td>boardPw</td>
-					<td><input type="password" name="boardPw"></td>
+					<td><input type="password" name="boardPw" ></td>
 				<tr>
 				<tr>
-					<td><input type="submit" value="수정하기"></td>
+					<td><input type="submit" value="수정하기" id="submit"></td>
 				</tr>
+				
 			</table>
+			
+				<a type=button class="w3-button w3-white w3-border w3-round-large"
+			th:href="@{/boardList(currentPage=${currentPage})}">리스트로 가기</a>
+		
 		</div>
 	</form>
 </body>
