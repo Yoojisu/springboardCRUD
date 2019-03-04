@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<meta charset=UTF-8>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+	<div id="one">
+		<div class="goal">one</div>	
+		<div class="goal">two</div>	
+		<div class="goal">three</div>	
+		<div class="goal">four</div>	
+		<span class="goal">five</span>
+	</div>
+	<script>
+	
+		//$('#one').append('<div>2</div>'); 
+		//1.class명 통일
+		//2.반복문
+		//3.text()
+		//4.console.log()
+		let goal = $('.goal'); //goal-> 배열을 리턴함(태그의 배열)
+		
+	/* 	for(let i=0, goal.length; i++ ){
+		일반적인 for의 사용			
+		밑의 forEach문의 훨씬 더 편함	
+	}
+		 */
+		goal.forEach(function(item, index){
+			//forEach : 배열의 갯수만큼 function을 실행 시킴
+			//매개변수 자리에 배열의 요소가 들어옴
+			console.log(item);
+			console.log(index);
+		});
+		
+		
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+eh서버접속
+
+실행 -> 원격 데스크톱 연결 -> 아이피 입력 후
+
+119.65.242.178
+사용자명 : ehn
+비번 : ehnetworks
+
+UXStudio922 <- xplatform UI 개발툴로 개발된 화면 파일명 ( *.xfdl )
+
+h11_0100m.xfdl 파일  : 인사 관리 화면(기본사항,가족사항,부양가족 등)
+
+
+예)
+X-UP Builder 파일명이 어느정도 일치 한다
+h11_0100m_rp1.mdl
+h11_0100m_sl1.mdl
+
+
+
+1) X-UP Builder 1.3 실행 -> X-UP Explorer -> *.mdl 파일 실행
+예) h11_0100_sl99.mdl 실행 -> 오른쪽 아래 SQL 쿼리문장 복사해서 heidisql 실행 후 약간 수정하면 테스트 가능함
+
+178번 x-up model test가 아닌 179번으로 model test 경로
+
+http://119.65.242.179:8081/xup/modelTestService?service=modelTest
+
+추출해서 엑셀에 정리한 파일
+쿼리문장추출가능_X-UP Model List_190221.xlsx
+sheet 구분
+
+00_model 리스트
+01_T_ACC_Domain_쿼리_02팀
+02_T_BOARD_Domain_쿼리_03팀
+03_T_BUSI_Domain_쿼리_01팀
+04_T_CES_Domain_쿼리_03팀
+05_T_COMM_Domain_쿼리_02팀
+06_T_EIS_Domain_쿼리_03팀
+07_T_GWA_Domain_쿼리_01팀
+08_T_HR_Domain_쿼리_02팀
+09_T_MAIN_Domain_쿼리_03팀
+10_T_PRJ1_Domain_쿼리_01팀
+11_T_PRJ2_Domain_쿼리_01팀
+12_T_PRJM_Domain_쿼리_01팀
+13_T_SYS_Domain_쿼리_03팀
+
+
+01팀_문효균_양소미_이다은_임명심_김동렬_오상택
+사업성 검토관리
+프로젝트 관리					
+경영 정보관리					
+03_T_BUSI_Domain_쿼리
+07_T_GWA_Domain_쿼리
+10_T_PRJ1_Domain_쿼리
+11_T_PRJ2_Domain_쿼리
+12_T_PRJM_Domain_쿼리
+
+02팀_홍승윤_윤예찬_최치원_박찬업_주선태
+인력관리				
+회계관리				
+01_T_ACC_Domain_쿼리
+05_T_COMM_Domain_쿼리
+08_T_HR_Domain_쿼리
+
+
+03팀_백승한_박기훈_임홍근_유지수_정다금
+M/H 관 리				
+기타				
+시스템 관리
+02_T_BOARD_Domain_쿼리 21개	
+04_T_CES_Domain_쿼리 21개
+06_T_EIS_Domain_쿼리 260개..?
+09_T_MAIN_Domain_쿼리 47개
+13_T_SYS_Domain_쿼리 133개
+
+--------------------------------
+
+크롬접속 안될시에 IE로 접속
+
+투비소프트 - xplatform  개발
+
+http://119.65.242.178:8080/
+artis 
+아이디 :  20120017
+패스워드 : 54321
+
+http://119.65.242.178:8081/
+artis-ERP
+아이디 :  20120017
+패스워드 : 1234567
+
+
+----------------------------
+MS-SQL Server 접속
+
+host : 119.65.242.178
+아이디 : sa
+패스워드 : enovator
+port : 1433
+db : ATIS_DB
+
+01팀_문효균_양소미_이다은_임명심_김동렬_오상택
+사업성 검토관리
+프로젝트 관리					
+경영 정보관리					
+
+02팀_홍승윤_윤예찬_최치원_박찬업_주선태
+인력관리				
+회계관리				
+
+03팀_백승한_박기훈_임홍근_유지수_정다금
+M/H 관 리				
+기타				
+시스템 관리				
