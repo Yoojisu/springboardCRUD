@@ -49,10 +49,25 @@
 	<insert id="insertBoard"
 			parameterType="cafe.ebsteam.springboard.vo.Board">
 	<!--리턴값(resultType)은 int(defult값으로 생략 가능) 매개변수입력값(parameterType)은 Board" -->
+		
+		<selectKey resultType="int" keyProperty="boardNo" order="AFTER">
+            SELECT LAST_INSERT_ID() AS boardNo
+        </selectKey>
 			
-			INSERT INTO board(board_pw, board_title, board_content, board_user, board_date)
-			values(#{boardPw},#{boardTitle},#{boardContent},#{boardUser},now())
-	
+			INSERT INTO board(
+			board_pw, 
+			board_title, 
+			board_content, 
+			board_user, 
+			board_date
+			)
+			values(
+			#{boardPw},
+			#{boardTitle},
+			#{boardContent},
+			#{boardUser},
+			now())
+				
 	</insert>
 	
 	<update id="updateBoard"

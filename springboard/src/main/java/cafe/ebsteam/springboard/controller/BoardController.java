@@ -2,6 +2,8 @@ package cafe.ebsteam.springboard.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cafe.ebsteam.springboard.service.Boardservice;
 import cafe.ebsteam.springboard.vo.Board;
+import cafe.ebsteam.springboard.vo.BoardRequest;
 
 @Controller
 public class BoardController {
@@ -29,14 +32,22 @@ public class BoardController {
 
 	// 입력 액션
 	@PostMapping("/addBoard")
-	public String addBoard(Board board) {
+	public String addBoard(BoardRequest boardRequest, HttpServletRequest request) {		
 		// addList화면에서 값들을 입력받으면 post방식으로 addList경로를 보낸다.
 		// 그 경로로 들어오면 addBord()실행
 		System.out.println("입력 액션 실행");
-
-		boardService.addBoard(board);
+		String path = request.getSession().getServletContext().getRealPath("./upload");
+		boardService.addBoard(boardRequest, path);
+		System.out.println("boardRequest : "+boardRequest);
+		
 		// boardService내의 addBoard메서드레 board를 매개변수로 받아 호출한다. 입력하는 메서드
 		//경로를 boardList로 리다이렉트 한다.
+	
+		
+		/*
+		 * 1.board안에 fileList 분해하여 DB에 들어갈수 있는 형태
+		 * 2.파일저장 : 파일경로 지정해주자(경로를 동적으로 구할 것)
+		 */		
 		return "redirect:/boardList";
 	}
 

@@ -102,7 +102,7 @@ div {
 	<div class="container" style="float:center">
 		<h2>게시글 등록 화면</h2>
 
-		<form action="/addBoard" method="post" id="addBoard">
+		<form action="/addBoard" method="post" id="addBoard" enctype="multipart/form-data">
 
 			<table>
 				<tr>
@@ -121,6 +121,10 @@ div {
 				<tr>
 					<td>boardUser</td>
 					<td><input type="text" name="boardUser" id="boardUser"></td>
+				<tr>
+				
+				<tr>
+					<td><input type="file" name="files"></td>					
 				<tr>
 
 					<td><input type="submit" value="등록" id="submit"></td>

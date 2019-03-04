@@ -1,5 +1,7 @@
 package cafe.ebsteam.springboard.vo;
 
+
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +13,8 @@ public class Board {
 	    private String boardContent;
 	    private String boardUser;
 	    private String boardDate;
-	    public int getBoardNo() {
+	   
+		public int getBoardNo() {
 	        return boardNo;
 	    }
 	    public void setBoardNo(int boardNo) {
