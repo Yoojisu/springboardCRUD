@@ -2,8 +2,9 @@ package cafe.ebsteam.springboard.vo;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
+@Component
 public class BoardRequest {
     private int boardNo;
     private String boardPw;

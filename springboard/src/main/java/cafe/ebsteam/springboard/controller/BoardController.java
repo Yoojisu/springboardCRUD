@@ -37,6 +37,7 @@ public class BoardController {
 		// 그 경로로 들어오면 addBord()실행
 		System.out.println("입력 액션 실행");
 		String path = request.getSession().getServletContext().getRealPath("./upload");
+		System.out.println("path : "+path);
 		boardService.addBoard(boardRequest, path);
 		System.out.println("boardRequest : "+boardRequest);
 		

@@ -1,0 +1,40 @@
+다음주 카페24주소 들어갈것
+
+
+커밋메세지
+
+[유지수]
+-파일ㅊ가 
+vo3개
+서비스
+컨트롤러
+
+
+
+
+
+
+나중에
+자동생성키 받아와야함
+
+디테일에서 파일업로드된 내용이 보여져야함
+
+이클립스환경에서는 절대주소로 확인....절대주소 상대주소 헷갈려.............................
+
+
+ip주소  58.76.98.245
+
+
+[유지수]springBoard 파일 추가 액션(진행중)
+- BoardRequest.java,Boardfile.java : board(vo)를 3개(요청하는 vo,file저장하는 vo)로
+분할하였음
+
+- Boardservice.java : boardRequset로 입력받은 정보들중에 file에 대한 정보들을 변형하여 다시
+저장하는 서비스 코드 작성
+
+- addBoard.html : 파일을 업로드하기 위한 input태그 변경
+
+- BoardfileMapper.java,BoardfileMapper.java : file을 저장하기 위한 Mapper작성
+
+-BoardController.java : 파일을 저장하기 위한 컨트롤러 작성
+

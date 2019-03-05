@@ -1,5 +1,8 @@
 package cafe.ebsteam.springboard.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Boardfile {
 	
 	private int boardfileNo;
